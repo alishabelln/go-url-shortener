@@ -1,0 +1,20 @@
+# Binaries
+/bin/
+/*.exe
+/*.dll
+/*.so
+/*.dylib
+
+# Vendor
+/vendor/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local env
+.env
