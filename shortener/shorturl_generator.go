@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math/big"
 	"os"
+	"strconv"
 
 	"github.com/itchyny/base58-go"
 )
@@ -28,6 +29,6 @@ func base58Encoded(bytes []byte) string {
 func GenerateShortLink(initialLink string, userId string) string {
 	urlHashBytes := sha256Of(initialLink + userId)
 	generatedNumber := new(big.Int).SetBytes(urlHashBytes).Uint64()
-	finalString := base58Encoded([]byte(fmt.Sprintf("%d", generatedNumber)))
+	finalString := base58Encoded([]byte(strconv.FormatUint(generatedNumber, 10)))
 	return finalString[:8]
 }
