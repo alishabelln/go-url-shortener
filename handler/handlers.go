@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Request model definition
 type UrlCreationRequest struct {
 	LongUrl string `json:"long_url" binding:"required"`
 	UserId string `json:"user_id" binding:"required"`
