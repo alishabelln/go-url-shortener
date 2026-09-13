@@ -26,7 +26,7 @@ var (
 
 const CacheDuration = 6 * time.Hour
 
-// Initializing the store service and return a store pointer 
+// return a store pointer 
 func InitializeStore() *StorageService {
 	redisClient := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
@@ -43,10 +43,6 @@ func InitializeStore() *StorageService {
 	storeService.redisClient = redisClient
 	return storeService
 }
-
-/* We want to be able to save the mapping between the originalUrl 
-and the generated shortUrl url
-*/
 
 func SaveUrlMapping(shortUrl string, originalUrl string, userId string){ 
 	err := storeService.redisClient.Set(shortUrl, originalUrl, CacheDuration).Err()
